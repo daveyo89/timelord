@@ -1,0 +1,4 @@
+Django
+djongo
+pymongo[snappy,gssapi,srv,tls]
+dnspython
