@@ -2,17 +2,14 @@ version: "3.6"
 services:
   django:
     build: .
-    restart: unless-stopped
-    environment:
-      - SECRET_KEY=23408728djlkjd37nmckdllsorhh377889s900&
+    restart: always
+    command: python manage.py runserver 0.0.0.0:80
     volumes:
-        -   .:/app
+      - .:/app
     ports:
-      - "8000:8000"
+      - "80:80"
     env_file:
-      - .env
-    networks:
-      - djongo-network
+      - ./.env
     depends_on:
       - mongodb
   mongodb:
@@ -24,9 +21,5 @@ services:
       - "27017:27017"
     volumes:
       - db_data:/data/db
-    networks:
-      - djongo-network
 volumes:
   db_data:
-networks:
-  djongo-network:

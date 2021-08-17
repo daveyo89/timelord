@@ -1,4 +1,5 @@
 Django
-djongo
 pymongo[snappy,gssapi,srv,tls]
 dnspython
+djangorestframework
+django-cors-headers
