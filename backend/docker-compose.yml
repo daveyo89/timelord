@@ -2,24 +2,13 @@ version: "3.6"
 services:
   django:
     build: .
-    restart: always
-    command: python manage.py runserver 0.0.0.0:80
+    tty: true
+    restart: unless-stopped
+    command: python manage.py runserver 0.0.0.0:8000
     volumes:
-      - .:/app
+      - ./:/app
     ports:
-      - "80:80"
+      - "8000:8000"
     env_file:
       - ./.env
-    depends_on:
-      - mongodb
-  mongodb:
-    image: mongo:5.0
-    restart: unless-stopped
-    env_file:
-      - .env
-    ports:
-      - "27017:27017"
-    volumes:
-      - db_data:/data/db
-volumes:
-  db_data:
+
