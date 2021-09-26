@@ -4,3 +4,4 @@ dnspython
 djangorestframework
 django-cors-headers
 gunicorn
+whitenoise
